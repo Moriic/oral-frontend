@@ -1,8 +1,8 @@
 import { createRouter,createWebHistory,createWebHashHistory } from 'vue-router'
 const routes = [
     {
-        path:'/home',
-        component:()=>import('@/src/pages/home/index.vue'),
+        path:'/',
+        component:()=>import('../pages/home/index.vue'),
         meta:{
             title:'首页'
         }
