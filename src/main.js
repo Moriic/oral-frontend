@@ -5,9 +5,13 @@ import 'element-plus/dist/index.css'
 import App from './App.vue'
 import router from './router/index'
 import Axios from 'axios'
+import pinia from '@/stores/index'
 var app = createApp(App)
 app.config.globalProperties.Axios = Axios
 for (const[key,component] of Object.entries(ElementPlusIconsVue)){
     app.component(key,component)
 }
-app.use(router).use(ElementPlus,{ size: 'small', zIndex: 3000 }).mount('#app')
+app.use(router)
+.use(ElementPlus,{ size: 'small', zIndex: 3000 })
+.use(pinia)
+.mount('#app')
