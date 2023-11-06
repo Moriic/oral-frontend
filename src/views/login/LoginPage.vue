@@ -1,8 +1,9 @@
 <script setup>
 import { userLoginService } from '@/api/user.js'
 import { ref } from 'vue'
-import { useUserStore } from '@/stores/index'
+import { useUserStore } from '@/stores'
 import { useRouter } from 'vue-router'
+import {ElMessage} from "element-plus";
 
 const form = ref()
 
@@ -45,7 +46,6 @@ const login = async () => {
 </script>
 
 <template>
-  登录成功
   <el-row class="login-page">
     <el-col :span="16" class="bg"></el-col>
     <el-col :span="2" class="mart"></el-col>
@@ -58,7 +58,7 @@ const login = async () => {
         :model="formModel"
         :rules="rules"
         ref="form"
-        size="min"
+        size="default"
         autocomplete="off"
       >
         <el-form-item>
@@ -84,7 +84,6 @@ const login = async () => {
         <el-form-item class="flex">
           <div style="width: 100%; text-align: right">
             <el-link
-              type="disabled"
               :underline="false"
               href="#"
               style="font-size: 10px"

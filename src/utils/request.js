@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useUserStore } from '@/stores/user'
 import { ElMessage } from 'element-plus'
 import router from '../router'
-const baseURL = '#' //接口地址
+const baseURL = 'http://localhost:8100' //接口地址
 
 const instance = axios.create({
   // TODO 1. 基础地址，超时时间
@@ -35,7 +35,7 @@ instance.interceptors.response.use(
   },
   (err) => {
     // TODO 5. 处理401错误
-    if (err.response?.status == 401) {
+    if (err.response?.status === 401) {
       router.push('/login')
     }
     ElMessage.error(err.response.data.message || '服务异常')
