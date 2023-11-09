@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { Edit, Delete } from '@element-plus/icons-vue'
-import { userGetinfo, userhandleAdd, userhandleEdit, userhandleDelete } from 'src/api/user'
+import { userGetinfo, userhandleAdd, userhandleEdit, userhandleDelete } from '@/api/user'
 import { Operation } from "@element-plus/icons-vue"
 const userList = ref([])
 const loading = ref(false)
