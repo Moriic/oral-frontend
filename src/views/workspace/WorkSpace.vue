@@ -111,40 +111,43 @@ const patients = ref([
         </div>
         <div class="doctor-info" style="margin-left: 15px;margin-top: 20px">
           <img class="doctor-picture" src="../../assets/imgs/doctor-picture.png">
-          <p class="introduction">个人简介<br><br>
+          <p style='height: 20vh;overflow: scroll' class="introduction">个人简介<br><br>
             口腔全科医生，掌握口腔医学各学科知识与基本能力，擅长牙体牙髓常见病疑难病诊断治疗,显微根管治疗,牙齿美白美容修复。
           </p>
         </div>
-        <table cellpadding="7px" class="basic-info">
-          <tr>
-            <td style="color:#a2a1a7;">医生姓名</td>
-            <td style="color: white">{{ doctor.医生姓名 }}</td>
-            <td style="color:#a2a1a7;">医生性别</td>
-            <td style="color: white">{{ doctor.医生性别 }}</td>
-          </tr>
-          <tr>
-            <td style="color:#a2a1a7;">出生日期</td>
-            <td style="color: white">{{ doctor.出生日期 }}</td>
-            <td style="color:#a2a1a7;">医生年龄</td>
-            <td style="color: white">{{ doctor.医生年龄 }}</td>
-          </tr>
-          <tr>
-            <td style="color:#a2a1a7;">所在科室</td>
-            <td style="color: white">{{ doctor.所在科室 }}</td>
-            <td style="color:#a2a1a7;">等级职称</td>
-            <td style="color: white">{{ doctor.等级职称 }}</td>
-          </tr>
-        </table>
+        <div class='doctor-info-table'>
+          <table cellpadding="7px" class="basic-info">
+            <tr>
+              <td style="color:#a2a1a7;">医生姓名</td>
+              <td style="color: white">{{ doctor.医生姓名 }}</td>
+              <td style="color:#a2a1a7;">医生性别</td>
+              <td style="color: white">{{ doctor.医生性别 }}</td>
+            </tr>
+            <tr>
+              <td style="color:#a2a1a7;">出生日期</td>
+              <td style="color: white">{{ doctor.出生日期 }}</td>
+              <td style="color:#a2a1a7;">医生年龄</td>
+              <td style="color: white">{{ doctor.医生年龄 }}</td>
+            </tr>
+            <tr>
+              <td style="color:#a2a1a7;">所在科室</td>
+              <td style="color: white">{{ doctor.所在科室 }}</td>
+              <td style="color:#a2a1a7;">等级职称</td>
+              <td style="color: white">{{ doctor.等级职称 }}</td>
+            </tr>
+          </table>
+        </div>
+
         <div class="table-title">
-          <p class="table-list">患者姓名</p>
-          <p style="margin-left: 8%" class="table-list">手机号码</p>
-          <p style="margin-left: 20%;margin-bottom: 0px" class="table-list">挂号类别</p>
+          <p style='width: 4vw;overflow: hidden' class="table-list">患者姓名</p>
+          <p style="margin-left: 8%;width: 4vw;overflow: hidden"  class="table-list">手机号码</p>
+          <p style="margin-left: 15%;overflow: hidden;width: 5vw;margin-bottom: 0px" class="table-list">挂号类别</p>
         </div>
         <div class="patient-list">
-          <div style="margin-left: 5px;display: flex;flex-direction: row" v-for="item in patients">
+          <div style="margin-left: 5%;display: flex;flex-direction: row" v-for="item in patients">
             <div class="table-list">{{ item.name }}</div>
-            <div style="margin-left: 15%" class="table-list">{{ item.num }}</div>
-            <div style="margin-left: 10%" class="table-list">{{ item.type }}</div>
+            <div style="margin-left: 15%;width: 6vw;overflow: hidden" class="table-list">{{ item.num }}</div>
+            <div style="margin-left: 10%;width: 4vw;overflow: hidden" class="table-list">{{ item.type }}</div>
           </div>
         </div>
       </div>
@@ -152,9 +155,9 @@ const patients = ref([
         <div><br><strong>今日手术列表</strong></div>
         <br>
         <el-row
-            style="float: left;text-align: center;width: 120px;border-radius: 8px;padding: 0.5%;background-color: #604085">
+            style="float: left;text-align: center;width: 8vw;border-radius: 8px;padding: 0.5%;background-color: #604085">
           患者人数
-          <div style="margin-left: 5px;border-radius: 5px;width: 40px;background-color: #20252a">{{ patientNum }}</div>
+          <div style="margin-left: 1vw;border-radius: 5px;width: 2vw;background-color: #20252a">{{ patientNum }}</div>
         </el-row>
         <div class="filter-select">
           <el-select popper-class="select-form" style="background-color: #604085" v-model="filterValue"
@@ -228,7 +231,7 @@ const patients = ref([
                 </tr>
               </table>
               <br>
-              <el-row>
+              <el-row style='overflow:scroll;'>
                 <el-button size="large" type="warning" :icon="Document" plain>患者病历.pdf</el-button>
                 <el-button size="large" type="warning" :icon="Document" plain>术前完整报告.pdf</el-button>
                 <el-button size="large" type="warning" :icon="Document" plain>麻醉知情同意书.pdf</el-button>
@@ -286,14 +289,18 @@ const patients = ref([
   margin: 0;
   color: #a2a1a7;
 }
-
+.doctor-info-table{
+  width: 22vw;
+  height: 30vh;
+  overflow: scroll;
+}
 .body {
   display: flex;
   flex-direction: row;
 }
 
 .filter-select {
-  width: 180px;
+  width: 10vw;
   border-radius: 20px;
   text-align: center;
   float: right;
@@ -307,7 +314,7 @@ const patients = ref([
   margin-top: 1%;
   margin-left: 5%;
   width: 60%;
-  height: 600px;
+  height: 80vh;
   background-color: #20252a;
 }
 
@@ -325,8 +332,8 @@ p {
   background-color: #20252a;
   text-align: center;
   color: white;
-  margin: 10px;
-  height: 190px;
+  margin: 1vh;
+  height: 40vh;
   overflow-y: scroll;
 }
 
@@ -342,8 +349,9 @@ td {
 
 .table-list {
   margin: 8px 8px 2px;
-  height: 40px;
+  height: 6vh;
   font-size: 14px;
+  text-align: left;
 }
 
 .table-title {
@@ -352,15 +360,15 @@ td {
   flex-direction: row;
   background-color: #604085;
   color: white;
-  height: 40px;
+  height: 5vh;
   border-radius: 12px 12px 0px 0px;
 }
 
 .doctor-picture {
   border-radius: 8px;
   margin-left: 8px;
-  width: 120px;
-  height: 120px;
+  width: 20vw;
+  height: 20vh;
 }
 
 .el-table tbody tr:hover > td {
@@ -386,6 +394,7 @@ td {
 }
 
 .doctor-card {
+  height: 82vh;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
@@ -403,34 +412,6 @@ header {
   flex-direction: row;
   background-color: #20252a;
   height: 12%;
-}
-
-
-.user-avatar {
-  margin: 12px;
-}
-
-.title {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 5%;
-  color: white;
-  width: 50%;
-}
-
-.user {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  color: white;
-  margin-left: auto;
-}
-
-.tooth {
-  float: left;
-  width: 60px;
-  height: 65px;
-  object-fit: scale-down;
-  vertical-align: middle;
 }
 
 .user span {
