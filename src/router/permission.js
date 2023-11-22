@@ -1,3 +1,4 @@
+// 路由鉴权，需要在main.js开启
 import router from '@/router'
 import { useUserStore } from '@/stores/user'
 import { getRole } from '@/api/user'

@@ -6,7 +6,9 @@ import App from './App.vue'
 import router from './router/index'
 import Axios from 'axios'
 import pinia from '@/stores/index'
-import '@/router/permission'
+
+// 路由鉴权
+// import '@/router/permission'
 
 var app = createApp(App)
 app.config.globalProperties.Axios = Axios
