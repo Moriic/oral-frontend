@@ -22,6 +22,10 @@ const routes = [
           {
             path: '/admin/doctor',
             component: () => import('@/views/admin/DoctorPage.vue')
+          },
+          {
+            path: '/admin/patient',
+            component: () => import('@/views/admin/PatientPage.vue')
           }
         ]
     }
