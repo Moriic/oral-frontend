@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { EditPen, Close } from '@element-plus/icons-vue'
+
 var patientNum = ref(500)
 var bookNum = ref(200)
 var finishNum = ref(250)
@@ -64,69 +65,6 @@ const userList = ref([
     department: '口腔内科',
     type: 1,
     status: 1,
-    fee: 10,
-    createTime: '2023-10-30-10:30',
-    phone: '18966666666'
-  },
-  {
-    name: '吴健',
-    department: '口腔内科',
-    type: 1,
-    status: 0,
-    fee: 10,
-    createTime: '2023-10-30-10:30',
-    phone: '18966666666'
-  },
-  {
-    name: '赵四',
-    department: '口腔内科',
-    type: 0,
-    status: 1,
-    fee: 10,
-    createTime: '2023-10-30-10:30',
-    phone: '18966666666'
-  },
-  {
-    name: '王强',
-    department: '口腔外科',
-    type: 0,
-    status: 0,
-    fee: 10,
-    createTime: '2023-10-30-10:30',
-    phone: '18966666666'
-  },
-  {
-    name: '王强',
-    department: '口腔内科',
-    type: 0,
-    status: 0,
-    fee: 10,
-    createTime: '2023-10-30-10:30',
-    phone: '18966666666'
-  },
-  {
-    name: '王强',
-    department: '口腔内科',
-    type: 0,
-    status: 0,
-    fee: 10,
-    createTime: '2023-10-30-10:30',
-    phone: '18966666666'
-  },
-  {
-    name: '王强',
-    department: '口腔内科',
-    type: 0,
-    status: 0,
-    fee: 10,
-    createTime: '2023-10-30-10:30',
-    phone: '18966666666'
-  },
-  {
-    name: '王强',
-    department: '口腔内科',
-    type: 0,
-    status: 0,
     fee: 10,
     createTime: '2023-10-30-10:30',
     phone: '18966666666'
@@ -235,18 +173,17 @@ const PatientDele = (id) => {
         size="middle"
         round
         @click="PatientAdd"
-        >添加患者</el-button
-      >
+        >添加患者
+      </el-button>
     </div>
 
     <el-table
       class="patient-table"
       :cell-style="{ padding: '40px' }"
-      :header-cell-style="{
-        backgroundColor: '#604085'
-      }"
       :data="userList"
-      style="width: 100% ,background-color:#604085"
+      style="width: 100%; background-color: #604085"
+      :row-style="{ background: '#1b2127', color: 'white' }"
+      :header-cell-style="{ background: '#604085', color: 'white' }"
     >
       <el-table-column label="  " align="left" width="20">
         <el-icon class="circle"></el-icon>
@@ -259,9 +196,9 @@ const PatientDele = (id) => {
         <template #default="scope">{{ scope.row.phone }}</template>
       </el-table-column>
       <el-table-column label="挂号类别" prop="type" align="center" width="120">
-        <template v-slot="scope">{{
-          scope.row.type ? '急诊' : '平诊'
-        }}</template>
+        <template v-slot="scope"
+          >{{ scope.row.type ? '急诊' : '平诊' }}
+        </template>
       </el-table-column>
       <el-table-column
         label="挂号时间"
@@ -285,10 +222,10 @@ const PatientDele = (id) => {
         align="center"
         width="150"
       >
-        <template v-slot="scope"
-          ><el-button :class="scope.row.status ? 'act' : 'inact'" round>{{
-            scope.row.status ? '已就诊' : '未就诊'
-          }}</el-button>
+        <template v-slot="scope">
+          <el-button :class="scope.row.status ? 'act' : 'inact'" round
+            >{{ scope.row.status ? '已就诊' : '未就诊' }}
+          </el-button>
         </template>
       </el-table-column>
       <el-table-column label="挂号费" prop="fee" align="center" width="130">
@@ -332,30 +269,36 @@ const PatientDele = (id) => {
   --el-table-tr-bg-color: black;
   --el-table-border: none;
 }
+
 .act:hover {
   background-color: #604085;
   border-color: #604085;
 }
+
 .act:focus {
   background-color: #604085;
   color: white;
   border-color: #604085;
 }
+
 .act {
   --el-button-bg-color: #604085;
   --el-button-border-color: #604085;
   --el-button-text-color: white;
 }
+
 .inact:hover {
   color: white;
   background-color: #5f5955;
   border-color: #5f5955;
 }
+
 .inact:focus {
   color: white;
   background-color: #5f5955;
   border-color: #5f5955;
 }
+
 .inact {
   --el-button-bg-color: #5f5955;
   --el-button-border-color: #5f5955;
@@ -372,33 +315,41 @@ const PatientDele = (id) => {
   border-top: 10px;
   margin-top: 1%;
   margin-left: 5%;
-  width: 98%;
-  height: 100%;
 }
+
 .el-col {
   border-radius: 10px;
   margin-right: 5px;
 }
+
 .el-row {
   margin-bottom: 10px;
 }
+
 .ta-head {
   margin-top: 2%;
   margin-bottom: 2%;
   vertical-align: middle;
   text-align: left;
 }
+
 .add-patient {
   float: right;
 }
+
 .el-table {
   .operation {
     height: 22px;
     width: 22px;
   }
 }
+
 .circle {
   background: url('src/assets/dot.png') no-repeat;
   background-size: 8px;
+}
+
+::v-deep .el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: #604085;
 }
 </style>

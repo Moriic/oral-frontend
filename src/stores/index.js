@@ -4,5 +4,3 @@ const pinia = createPinia()
 pinia.use(persist)
 
 export default pinia
-import { useUserStore } from './user'
-export { useUserStore }
