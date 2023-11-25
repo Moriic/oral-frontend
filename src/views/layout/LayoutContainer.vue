@@ -16,42 +16,42 @@ const $route = useRoute()
 </script>
 
 <template>
-  <el-container class="layout-container">
+  <el-container class='layout-container'>
     <el-aside>
       <el-header>
-        <div class="title">
-          <img class="tooth" src="../../assets/imgs/tooth.png" />
-          <span style="text-align: right">
-            <h3 style="margin-bottom: 10px; margin-top: 8px">口腔检查系统</h3>
-            <h5 style="margin: 0">Oral examination system</h5>
+        <div class='title'>
+          <img class='tooth' src='../../assets/imgs/tooth.png' />
+          <span style='text-align: right'>
+            <h3 style='margin-bottom: 10px; margin-top: 8px'>口腔检查系统</h3>
+            <h5 style='margin: 0'>Oral examination system</h5>
           </span>
         </div>
       </el-header>
       <el-menu
-        text-color="white"
-        active-text-color="white"
+        text-color='white'
+        active-text-color='white'
         router
-        :default-active="$route.path"
+        :default-active='$route.path'
       >
-        <el-menu-item index="1">
+        <el-menu-item index='1'>
           <el-icon>
             <House />
           </el-icon>
           <span>首页概况</span>
         </el-menu-item>
-        <el-menu-item index="/admin/patient">
+        <el-menu-item index='/admin/patient'>
           <el-icon>
             <User />
           </el-icon>
           <span>患者信息</span>
         </el-menu-item>
-        <el-menu-item index="/admin/doctor">
+        <el-menu-item index='/admin/doctor'>
           <el-icon>
             <User />
           </el-icon>
           <span>医生信息</span>
         </el-menu-item>
-        <el-menu-item index="/admin/patientRoom">
+        <el-menu-item index='/admin/sickroom'>
           <el-icon>
             <FolderAdd />
           </el-icon>
@@ -60,12 +60,12 @@ const $route = useRoute()
       </el-menu>
     </el-aside>
     <el-container>
-      <el-header class="main-header">
+      <el-header class='main-header'>
         <el-input
-          class="inpu"
-          v-model="input"
-          placeholder="患者名称/药品编号/医生名称/病房号"
-          :prefix-icon="Search"
+          class='inpu'
+          v-model='input'
+          placeholder='患者名称/药品编号/医生名称/病房号'
+          :prefix-icon='Search'
         ></el-input>
         <el-button circle>
           <el-icon>
@@ -82,14 +82,14 @@ const $route = useRoute()
             <BellFilled />
           </el-icon>
         </el-button>
-        <div class="user">
-          <span class="user-name">管理端</span>
+        <div class='user'>
+          <span class='user-name'>管理端</span>
           <el-avatar
-            class="user-avatar"
-            size="100"
-            style="float: right"
-            shape="circle"
-            src="src/assets/imgs/avatar.png"
+            class='user-avatar'
+            size='100'
+            style='float: right'
+            shape='circle'
+            src='src/assets/imgs/avatar.png'
           />
         </div>
       </el-header>
@@ -107,7 +107,7 @@ const $route = useRoute()
   --el-input-placeholder-color: rgb(197, 197, 197);
 }
 </style>
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 .layout-container {
   height: 100vh;
   margin-top: -10px;

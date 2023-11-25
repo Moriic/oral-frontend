@@ -28,7 +28,7 @@ instance.interceptors.response.use(
     // TODO 3. 处理业务失败
     // TODO 4. 摘取核心响应数据
     if (res.data.code === 0) {
-      return res
+      return res.data
     }
     ElMessage.error(res.data.message || '服务异常')
     return Promise.reject(res.data)
@@ -37,6 +37,7 @@ instance.interceptors.response.use(
     // TODO 5. 处理401错误
     if (err.response?.status === 401) {
       router.push('/login')
+      return Promise.reject(err)
     }
     ElMessage.error(err.response.data.message || '服务异常')
     return Promise.reject(err)

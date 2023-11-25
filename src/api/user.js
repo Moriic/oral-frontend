@@ -1,7 +1,11 @@
 import request from '@/utils/request'
 // 登录接口
-export const userLoginService = ({ account, password }) => request.post('/user/login', { account, password })
-export const userGetinfo = () => request.get('/user')
+
+export const getRole = () => request.get('/role')
+export const userLoginService = ({ account, password }) =>
+  request.post('/login', { account, password })
+export const getDoctorPage = (page, pageSize) =>
+  request.get(`/admin/doctor/page?page=${page}&pageSize=${pageSize}`)
 export const userhandleAdd = (data) => request.post('/admin/doctor', data)
 export const userhandleEdit = (data) => request.put('/admin/doctor', data)
 export const userhandleDelete = (id) => request.DELETE('/admin/doctor', id)

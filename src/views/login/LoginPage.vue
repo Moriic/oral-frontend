@@ -1,9 +1,9 @@
 <script setup>
 import { userLoginService } from '@/api/user.js'
 import { ref } from 'vue'
-import { useUserStore } from '@/stores'
+import { useUserStore } from '@/stores/user'
 import { useRouter } from 'vue-router'
-import {ElMessage} from "element-plus";
+import { ElMessage } from 'element-plus'
 
 const form = ref()
 
@@ -41,7 +41,13 @@ const login = async () => {
   const res = await userLoginService(formModel.value)
   userStore.setToken(res.data.token)
   ElMessage.success('登录成功')
-  router.push('/')
+  if (res.data.role === 'admin') {
+    userStore.role = 'admin'
+    await router.push('/admin')
+  } else {
+    userStore.role = 'doctor'
+    await router.push('/doctor')
+  }
 }
 </script>
 
@@ -83,10 +89,7 @@ const login = async () => {
         </el-form-item>
         <el-form-item class="flex">
           <div style="width: 100%; text-align: right">
-            <el-link
-              :underline="false"
-              href="#"
-              style="font-size: 10px"
+            <el-link :underline="false" href="#" style="font-size: 10px"
               >忘记密码
             </el-link>
           </div>
@@ -94,8 +97,8 @@ const login = async () => {
         <el-form-item>
           <div style="width: 100%; text-align: center">
             <el-button @click="login" class="button" type="info" round
-              >登录</el-button
-            >
+              >登录
+            </el-button>
           </div>
         </el-form-item>
       </el-form>
@@ -119,23 +122,28 @@ const login = async () => {
   height: 100vh;
   background-color: rgb(109, 100, 95);
 }
+
 .bg {
   background: url('@/assets/background.jpg') no-repeat right / cover;
   border-radius: 0;
 }
+
 .mart {
   border-radius: 35px 0 0 20px;
   background-color: #604085;
 }
+
 .logo {
   vertical-align: top;
   height: 100px;
   justify-content: space-between;
   align-items: center;
 }
+
 .loj {
   background-color: #604085;
 }
+
 .form {
   display: flex;
   flex-direction: column;
@@ -144,12 +152,15 @@ const login = async () => {
   text-align: center;
   background-color: #604085;
 }
+
 .title {
   margin: 0 auto;
 }
+
 .button {
   margin: 0 auto;
 }
+
 .flex {
   width: 100%;
   display: flex;
