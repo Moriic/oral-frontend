@@ -6,6 +6,7 @@ import App from './App.vue'
 import router from './router/index'
 import Axios from 'axios'
 import pinia from '@/stores/index'
+import '@/styles/index.scss'
 
 // 路由鉴权
 // import '@/router/permission'

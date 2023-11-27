@@ -67,9 +67,9 @@ const login = async () => {
         size="default"
         autocomplete="off"
       >
-        <el-form-item>
-          <h1 style="color: white; font-size: 47px">口腔检查系统</h1>
-        </el-form-item>
+        <h1 style="color: white; font-size: 47px; word-wrap: break-word">
+          口腔检查系统
+        </h1>
         <el-form-item>
           <h2 style="color: white">登录</h2>
         </el-form-item>
@@ -124,7 +124,7 @@ const login = async () => {
 }
 
 .bg {
-  background: url('@/assets/background.jpg') no-repeat right / cover;
+  background: url('@/assets/background.png') no-repeat right / cover;
   border-radius: 0;
 }
 
@@ -151,10 +151,6 @@ const login = async () => {
   user-select: none;
   text-align: center;
   background-color: #604085;
-}
-
-.title {
-  margin: 0 auto;
 }
 
 .button {

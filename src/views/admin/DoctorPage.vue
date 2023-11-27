@@ -108,7 +108,7 @@ const filterOptions = [
 </template>
 
 <style lang="scss" scoped>
-::v-deep .el-table--enable-row-hover .el-table__body tr:hover > td {
+:deep .el-table--enable-row-hover .el-table__body tr:hover > td {
   background-color: #604085;
 }
 </style>

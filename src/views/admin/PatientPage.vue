@@ -349,7 +349,7 @@ const PatientDele = (id) => {
   background-size: 8px;
 }
 
-::v-deep .el-table--enable-row-hover .el-table__body tr:hover > td {
+:deep .el-table--enable-row-hover .el-table__body tr:hover > td {
   background-color: #604085;
 }
 </style>
