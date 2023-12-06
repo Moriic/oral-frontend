@@ -33,6 +33,10 @@ const routes = [
     ]
   },
   {
+    path: '/test',
+    component: () => import('@/views/workspace/test.vue')
+  },
+  {
     path: '/admin',
     component: () => import('@/views/layout/LayoutContainer.vue'),
     redirect: '/admin/doctor',
@@ -66,4 +70,3 @@ const router = createRouter({
   routes
 })
 export default router
-
