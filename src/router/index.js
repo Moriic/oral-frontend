@@ -42,6 +42,13 @@ const routes = [
     redirect: '/admin/doctor',
     children: [
       {
+        path: '/admin/home',
+        component: () => import('@/views/admin/home.vue'),
+        meta: {
+          title: '首页概况'
+        }
+      },
+      {
         path: '/admin/doctor',
         component: () => import('@/views/admin/DoctorPage.vue'),
         meta: {

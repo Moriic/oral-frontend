@@ -33,7 +33,7 @@ const $route = useRoute()
         router
         :default-active='$route.path'
       >
-        <el-menu-item index='1'>
+        <el-menu-item index='/admin/home'>
           <el-icon>
             <House />
           </el-icon>
